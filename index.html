@@ -1,0 +1,52 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake News Detector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f6fa;
+            text-align: center;
+            margin-top: 50px;
+        }
+        textarea {
+            width: 60%;
+            height: 120px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>📰 Fake News Detector</h1>
+    <form action="/predict" method="post">
+        <textarea name="news_text" placeholder="Paste a news headline or article text here..."></textarea><br>
+        <button type="submit">Check</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result">{{ prediction }}</div>
+    {% endif %}
+</body>
+</html>
